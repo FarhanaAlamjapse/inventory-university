@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {ExpensesSummary, PurchaseSummary, ReturnSummary, SaleSummary} from "../../APIRequest/SummaryAPIRequest";
+import {ExpensesSummary, ProfitSummary, PurchaseSummary, ReturnSummary, SaleSummary} from "../../APIRequest/SummaryAPIRequest";
 import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
 import {useSelector} from "react-redux";
 import CurrencyFormat from 'react-currency-format';
@@ -11,6 +11,7 @@ const Dashboard = () => {
             await SaleSummary()
             await ReturnSummary()
             await PurchaseSummary()
+            await ProfitSummary()
         })();
     },[])
 
@@ -26,11 +27,12 @@ const Dashboard = () => {
 
     let PurchaseChart = useSelector((state) => state.dashboard.PurchaseChart);
     let PurchaseTotal = useSelector((state) => state.dashboard.PurchaseTotal);
-
+    
+    let ProfitTotal = useSelector((state) => state.dashboard.ProfitTotal);
     return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-3 p-2">
+                    <div className="col-md-4 p-2">
                         <div className="card">
                             <div className="card-body">
                                 <span className="h5">
@@ -40,17 +42,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3 p-2">
-                        <div className="card">
-                            <div className="card-body">
-                               <span className="h5">
-                                    <CurrencyFormat value={SaleTotal} displayType={'text'} thousandSeparator={true} prefix={'$'} />
-                                </span>
-                                <p>Total Sale</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-3 p-2">
+                    <div className="col-md-4 p-2">
                         <div className="card">
                             <div className="card-body">
                                <span className="h5">
@@ -60,7 +52,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3 p-2">
+                    <div className="col-md-4 p-2">
                         <div className="card">
                             <div className="card-body">
                                <span className="h5">
@@ -70,8 +62,28 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
+                      <div className="col-md-6 p-2">
+                        <div className="card">
+                            <div className="card-body">
+                               <span className="h5">
+                                    <CurrencyFormat value={SaleTotal} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                </span>
+                                <p>Total Sale</p>
+                            </div>
+                        </div>
+                    </div>
+                      <div className="col-md-6 p-2">
+                        <div className="card">
+                            <div className="card-body">
+                               <span className="h5">
+                                    <CurrencyFormat value={ProfitTotal} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                </span>
+                                <p>Total{ProfitTotal > 0 ? " Profit" : " Loss" }</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="row">
+                <div className="row mt-5">
                     <div className="col-md-6 p-2">
                         <div className="card">
                             <div className="card-body">

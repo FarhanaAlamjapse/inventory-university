@@ -50,19 +50,19 @@ const SupplierCreateUpdate = () => {
                         <div className="card">
                             <div className="card-body">
                                 <div className="row">
-                                    <h5 >Save Supplier</h5>
+                                    <h5 >Create New Supplier</h5>
                                     <hr className="bg-light"/>
 
-                                    <div className="col-4 p-2">
-                                        <label className="form-label">Supplier Name</label>
+                                    <div className="col-6 p-2">
+                                        <label className="form-label">Name</label>
                                         <input onChange={(e)=>{store.dispatch(OnChangeSupplierInput({Name:"Name",Value:e.target.value}))}} value={FormValue.Name} className="form-control form-control-sm" type="text"/>
                                     </div>
-                                    <div className="col-4 p-2">
-                                        <label className="form-label">Mobile No</label>
+                                    <div className="col-6 p-2">
+                                        <label className="form-label">Mobile Number</label>
                                         <input onChange={(e)=>{store.dispatch(OnChangeSupplierInput({Name:"Phone",Value:e.target.value}))}} value={FormValue.Phone} className="form-control form-control-sm" type="text"/>
                                     </div>
-                                    <div className="col-4 p-2">
-                                        <label className="form-label">Email </label>
+                                    <div className="col-6 p-2">
+                                        <label className="form-label">Email</label>
                                         <input onChange={(e)=>{store.dispatch(OnChangeSupplierInput({Name:"Email",Value:e.target.value}))}} value={FormValue.Email} className="form-control form-control-sm" type="text"/>
                                     </div>
                                     <div className="col-12 p-2">

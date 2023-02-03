@@ -50,18 +50,18 @@ const CustomerCreateUpdate = () => {
                         <div className="card">
                             <div className="card-body">
                                 <div className="row">
-                                    <h5 >Save Customer</h5>
+                                    <h5 >Create New Customer</h5>
                                     <hr className="bg-light"/>
 
-                                    <div className="col-4 p-2">
+                                    <div className="col-6 p-2">
                                         <label className="form-label">Customer Name</label>
                                         <input onChange={(e)=>{store.dispatch(OnChangeCustomerInput({Name:"CustomerName",Value:e.target.value}))}} value={FormValue.CustomerName} className="form-control form-control-sm" type="text"/>
                                     </div>
-                                    <div className="col-4 p-2">
+                                    <div className="col-6 p-2">
                                         <label className="form-label">Mobile No</label>
                                         <input onChange={(e)=>{store.dispatch(OnChangeCustomerInput({Name:"Phone",Value:e.target.value}))}} value={FormValue.Phone} className="form-control form-control-sm" type="text"/>
                                     </div>
-                                    <div className="col-4 p-2">
+                                    <div className="col-6 p-2">
                                         <label className="form-label">Email </label>
                                         <input onChange={(e)=>{store.dispatch(OnChangeCustomerInput({Name:"Email",Value:e.target.value}))}} value={FormValue.Email} className="form-control form-control-sm" type="text"/>
                                     </div>
